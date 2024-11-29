@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"gollege/data/questions/enem/year2023"
 	"github.com/gin-gonic/gin"
+	"github.com/reallease/gollege/data/questions/enem/year2023"
 )
 
 // List ENEM questions from one year.
@@ -31,26 +31,26 @@ func GetByYear(ctx *gin.Context) {
 	switch year {
 	case "2023":
 		switch lang {
-			case "languages":
-				ctx.JSON(200, year2023.Languages)	
-			case "natural_ciencies":
-				ctx.JSON(200, year2023.Natural_sciences)
+		case "languages":
+			ctx.JSON(200, year2023.Languages)
+		case "natural_ciencies":
+			ctx.JSON(200, year2023.Natural_sciences)
 		}
-	// case "2022":
-	// 	ctx.JSON(200, year2022.Questions)
+		// case "2022":
+		// 	ctx.JSON(200, year2022.Questions)
 
-	// case "2021":
-	// 	ctx.JSON(200, year2021.Questions)
+		// case "2021":
+		// 	ctx.JSON(200, year2021.Questions)
 
-	// case "2020":
-	// 	ctx.JSON(200, year2020.Humans_sciences)
+		// case "2020":
+		// 	ctx.JSON(200, year2020.Humans_sciences)
 
-	// case "2019":
-	// 	ctx.JSON(200, year2019.Questions)
+		// case "2019":
+		// 	ctx.JSON(200, year2019.Questions)
 
-	// default:
-	// 	ctx.JSON(200, gin.H{})
-	//
+		// default:
+		// 	ctx.JSON(200, gin.H{})
+		//
 	}
 }
 

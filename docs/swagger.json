@@ -1,7 +1,62 @@
 {
     "swagger": "2.0",
     "info": {
-        "contact": {}
+        "title": "Gollege",
+        "contact": {},
+        "version": "1.0"
     },
-    "paths": {}
+    "host": "localhost:8080",
+    "basePath": "/v1",
+    "paths": {
+        "/enem/2019": {
+            "get": {
+                "description": "Get question",
+                "tags": [
+                    "ENEM"
+                ],
+                "summary": "List questions",
+                "responses": {}
+            }
+        },
+        "/enem/2020": {
+            "get": {
+                "description": "Get question",
+                "tags": [
+                    "ENEM"
+                ],
+                "summary": "List questions",
+                "responses": {}
+            }
+        },
+        "/enem/2021": {
+            "get": {
+                "description": "Get question",
+                "tags": [
+                    "ENEM"
+                ],
+                "summary": "List questions",
+                "responses": {}
+            }
+        },
+        "/enem/2022": {
+            "get": {
+                "description": "Get question",
+                "tags": [
+                    "ENEM"
+                ],
+                "summary": "List questions",
+                "responses": {}
+            }
+        },
+        "/enem/2023": {
+            "get": {
+                "description": "Get question",
+                "tags": [
+                    "ENEM"
+                ],
+                "summary": "List questions",
+                "responses": {}
+            }
+        }
+    }
 }

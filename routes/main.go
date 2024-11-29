@@ -1,9 +1,18 @@
-package enem
+package routes
 
 import (
 	"gollege/data/questions/enem/year2023"
 	"github.com/gin-gonic/gin"
 )
+
+// List ENEM questions from one year.
+//
+//	@Summary		List questions
+//	@Description	Get question
+//	@Tags			ENEM
+//	@Produces		json
+//	@Param			year	path	string	true	"Year"
+//	@Router			/enem/{year} [get]
 
 func GetByYear(ctx *gin.Context) {
 	year := ctx.Param("year")

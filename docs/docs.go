@@ -14,16 +14,67 @@ const docTemplate = `{
     },
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
-    "paths": {}
+    "paths": {
+        "/enem/2019": {
+            "get": {
+                "description": "Get question",
+                "tags": [
+                    "ENEM"
+                ],
+                "summary": "List questions",
+                "responses": {}
+            }
+        },
+        "/enem/2020": {
+            "get": {
+                "description": "Get question",
+                "tags": [
+                    "ENEM"
+                ],
+                "summary": "List questions",
+                "responses": {}
+            }
+        },
+        "/enem/2021": {
+            "get": {
+                "description": "Get question",
+                "tags": [
+                    "ENEM"
+                ],
+                "summary": "List questions",
+                "responses": {}
+            }
+        },
+        "/enem/2022": {
+            "get": {
+                "description": "Get question",
+                "tags": [
+                    "ENEM"
+                ],
+                "summary": "List questions",
+                "responses": {}
+            }
+        },
+        "/enem/2023": {
+            "get": {
+                "description": "Get question",
+                "tags": [
+                    "ENEM"
+                ],
+                "summary": "List questions",
+                "responses": {}
+            }
+        }
+    }
 }`
 
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
-	Version:          "",
-	Host:             "",
-	BasePath:         "",
+	Version:          "1.0",
+	Host:             "localhost:8080",
+	BasePath:         "/v1",
 	Schemes:          []string{},
-	Title:            "",
+	Title:            "Gollege",
 	Description:      "",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,

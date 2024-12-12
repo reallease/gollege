@@ -15,53 +15,61 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/enem/2019": {
+        "/enem/files/{year}/{id}": {
             "get": {
-                "description": "Get question",
+                "description": "Get file from an specific year and id",
+                "produces": [
+                    "*/*"
+                ],
                 "tags": [
                     "ENEM"
                 ],
-                "summary": "List questions",
+                "summary": "Get file",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Year",
+                        "name": "year",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
                 "responses": {}
             }
         },
-        "/enem/2020": {
+        "/enem/{year}/{lang}": {
             "get": {
-                "description": "Get question",
+                "description": "List question from an specific year and language",
+                "produces": [
+                    "application/json"
+                ],
                 "tags": [
                     "ENEM"
                 ],
                 "summary": "List questions",
-                "responses": {}
-            }
-        },
-        "/enem/2021": {
-            "get": {
-                "description": "Get question",
-                "tags": [
-                    "ENEM"
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Year",
+                        "name": "year",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Language",
+                        "name": "lang",
+                        "in": "path",
+                        "required": true
+                    }
                 ],
-                "summary": "List questions",
-                "responses": {}
-            }
-        },
-        "/enem/2022": {
-            "get": {
-                "description": "Get question",
-                "tags": [
-                    "ENEM"
-                ],
-                "summary": "List questions",
-                "responses": {}
-            }
-        },
-        "/enem/2023": {
-            "get": {
-                "description": "Get question",
-                "tags": [
-                    "ENEM"
-                ],
-                "summary": "List questions",
                 "responses": {}
             }
         }

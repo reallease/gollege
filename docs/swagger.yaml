@@ -5,39 +5,44 @@ info:
   title: Gollege
   version: "1.0"
 paths:
-  /enem/2019:
+  /enem/{year}/{lang}:
     get:
-      description: Get question
+      description: List question from an specific year and language
+      parameters:
+      - description: Year
+        in: path
+        name: year
+        required: true
+        type: string
+      - description: Language
+        in: path
+        name: lang
+        required: true
+        type: string
+      produces:
+      - application/json
       responses: {}
       summary: List questions
       tags:
       - ENEM
-  /enem/2020:
+  /enem/files/{year}/{id}:
     get:
-      description: Get question
+      description: Get file from an specific year and id
+      parameters:
+      - description: Year
+        in: path
+        name: year
+        required: true
+        type: string
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - '*/*'
       responses: {}
-      summary: List questions
-      tags:
-      - ENEM
-  /enem/2021:
-    get:
-      description: Get question
-      responses: {}
-      summary: List questions
-      tags:
-      - ENEM
-  /enem/2022:
-    get:
-      description: Get question
-      responses: {}
-      summary: List questions
-      tags:
-      - ENEM
-  /enem/2023:
-    get:
-      description: Get question
-      responses: {}
-      summary: List questions
+      summary: Get file
       tags:
       - ENEM
 swagger: "2.0"

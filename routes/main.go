@@ -1,32 +1,27 @@
 package routes
 
 import (
+	"fmt"
+
 	"github.com/gin-gonic/gin"
 	"github.com/reallease/gollege/data/questions/enem/year2023"
 )
 
-// List ENEM questions from one year.
+// List question by year and language
 //
 //	@Summary		List questions
-//	@Description	Get question
+//	@Description	List question from an specific year and language
+//
 //	@Tags			ENEM
-//	@Produces		json
+//	@Produce		application/json
+//
 //	@Param			year	path	string	true	"Year"
-//	@Router			/enem/{year} [get]
-
+//	@Param			lang	path	string	true	"Language"
+//
+//	@Router			/enem/{year}/{lang} [get]
 func GetByYear(ctx *gin.Context) {
 	year := ctx.Param("year")
 	lang := ctx.Param("lang")
-
-	//  var question questions.Question
-
-	// root := "./data/question2/enem"
-	// path := fmt.Sprintf("%s/%s", root, year)
-	// question_path := fmt.Sprintf("%s/question.json", path)
-
-	// questions_file, _ := os.ReadFile(question_path)
-
-	// ctx.Data(200, gin.MIMEJSON, questions_file)
 
 	switch year {
 	case "2023":
@@ -36,22 +31,30 @@ func GetByYear(ctx *gin.Context) {
 		case "natural_ciencies":
 			ctx.JSON(200, year2023.Natural_sciences)
 		}
-		// case "2022":
-		// 	ctx.JSON(200, year2022.Questions)
-
-		// case "2021":
-		// 	ctx.JSON(200, year2021.Questions)
-
-		// case "2020":
-		// 	ctx.JSON(200, year2020.Humans_sciences)
-
-		// case "2019":
-		// 	ctx.JSON(200, year2019.Questions)
-
-		// default:
-		// 	ctx.JSON(200, gin.H{})
-		//
 	}
+}
+
+// Get file by year and id
+//
+//	@Summary		Get file
+//	@Description	Get file from an specific year and id
+//
+//	@Tags			ENEM
+//	@Produce		*/*
+//
+//	@Param			year	path	string	true	"Year"
+//	@Param			id		path	string	true	"ID"
+//
+//	@Router			/enem/files/{year}/{id} [get]
+func GetFile(ctx *gin.Context) {
+	year := ctx.Param("year")
+	id := ctx.Param("id")
+
+	root := "data/files/enem"
+	path := fmt.Sprintf("%s/%s", root, year)
+	question := fmt.Sprintf("%s/%s", path, id)
+
+	ctx.File(question)
 }
 
 //
@@ -64,6 +67,7 @@ func AllRouters(router *gin.Engine) *gin.RouterGroup {
 	v1 := router.Group("/v1")
 
 	v1.GET("/enem/:year/:lang", GetByYear)
+	v1.GET("/enem/files/:year/:id", GetFile)
 
 	return v1
 }

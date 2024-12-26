@@ -1,7 +1,7 @@
 package year2023
 
 import (
-	"github.com/reallease/gollege/data/questions"
+	"github.com/reallease/gollege/data/questions/enem"
 )
 
 var Languages = []questions.Question{

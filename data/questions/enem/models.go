@@ -22,12 +22,4 @@ type Question struct {
 	Alternatives []Alternative 
 
 	Credits string `json:"credits"`
-
-	// AnswerOne   string `json:"answer1"`
-	// AnswerTwo   string `json:"answer2"`
-	// AnswerThree string `json:"answer3"`
-	// AnswerFour  string `json:"answer4"`
-	// AnswerFive  string `json:"answer5"`
-
-	// CorrectAlternative string `json:"correctAlternative"`
 }
